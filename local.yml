@@ -1,0 +1,17 @@
+version: "2"
+services:
+  webserver:
+    image: "moodlehq/moodle-php-apache:${MOODLE_DOCKER_PHP_VERSION}"
+    volumes:
+      - "${MOODLE_DOCKER_WWWROOT}:/var/www/html"
+      - ./moodledata:/var/www/moodledata
+  db:
+    platform: linux/amd64
+    image: xanticodev/mssql-server-linux-fts-2019-latest:1.0
+    environment:
+      ACCEPT_EULA: "y"
+      SA_PASSWORD: "m@0dl3ing"
+    ports:
+      - 1433:1433
+    volumes:
+      - "./mssqldata/:/var/opt/mssql/"
