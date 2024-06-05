@@ -58,3 +58,5 @@ atlassian-ide-plugin.xml
 /assets/php/
 
 !logs/.gitkeep
+local.yml
+/moodle/
